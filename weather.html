@@ -1,0 +1,123 @@
+<html>
+
+<head>
+
+</head>
+
+<body class="crt">
+    <h1 class="heading">WEATHER DATA</h1>
+    <table class="my-table" id="weatherTable">
+        <tr>
+            <th>TEMP</th>
+            <th>DATE AND TIME</th>
+            <th>PRECIPITATION</th>
+            <th>WEATHER</th>
+        </tr>
+    </table>
+</body>
+<link href="css\weather-icons-wind.css" rel="stylesheet" />
+<link href="css\weather-icons.css" rel="stylesheet" />
+<script src="weather.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/d3js/7.8.5/d3.min.js"></script>
+<style>
+    body {
+        background-color: darkblue;
+        color: white;
+        font-family: RETRO_FONT;
+        text-align: center;
+    }
+
+    .my-table {
+        background-color: lightgray;
+        border: 2px solid darkblue;
+        box-shadow: 0 0 0 20px lightgray;
+        font-family: RETRO_FONT;
+        font-size: large;
+        color: gray;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+
+    .heading {
+        color: white;
+        font-family: RETRO_FONT;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-weight: normal;
+    }
+
+    /* https://oudkee.neocities.org/tutorials/tutcrt */
+    .crt::before {
+        content: " ";
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        z-index: 2;
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+    }
+
+    @keyframes flicker {
+        0% {
+            opacity: 0.27861;
+        }
+
+        5% {
+            opacity: 0.34769;
+        }
+
+        10% {
+            opacity: 0.23604;
+        }
+
+        15% {
+            opacity: 0.10626;
+        }
+
+        20% {
+            opacity: 0.18128;
+        }
+
+        25% {
+            opacity: 0.10626;
+        }
+
+        30% {
+            opacity: 0.18128;
+        }
+
+        35% {
+            opacity: 0.23604;
+        }
+    }
+
+    .crt::after {
+        content: " ";
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(18, 16, 16, 0.1);
+        opacity: 0;
+        z-index: 2;
+        pointer-events: none;
+        animation: flicker 0.15s infinite;
+    }
+
+    @font-face {
+        font-family: RETRO_FONT;
+        src: url(Ac437_IBM_Conv.ttf);
+    }
+</style>
+
+</html>
