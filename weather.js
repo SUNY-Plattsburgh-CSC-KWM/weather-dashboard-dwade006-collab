@@ -63,7 +63,7 @@ async function processGetForecastData(latitude, longitude) {
                 wData.temp = data.hourly.temperature_2m[i].toString();
             }
             wData.time = data.hourly.time[i];
-            wData.pProb = data.hourly.precipitation[i].toString();
+            wData.pProb = data.hourly.precipitation_probability[i].toString();
             wData.is_Day = data.hourly.is_day[i];
             if (data.hourly.weather_code[i] <= 49 && data.hourly.is_day[i] == 1) {
                 wData.wCond = `<i class="wi wi-day-sunny"></i>`;
@@ -80,7 +80,7 @@ async function processGetForecastData(latitude, longitude) {
             DataArr.push(wData);
         }
         for (let i = 0; i < DataArr.length; i++) {
-            $("#weatherTable tbody").append("<tr><td>" + DataArr[i].temp + " </td><td>" + DataArr[i].time + " </td><td>" + DataArr[i].pProb + "</td><td>" + DataArr[i].wCond + "</td></tr>");
+            $("#weatherTable tbody").append("<tr><td>" + DataArr[i].temp + " </td><td>" + DataArr[i].time + " </td><td>" + DataArr[i].pProb + "%</td><td>" + DataArr[i].wCond + "</td></tr>");
         }
     }
     catch (e) {
